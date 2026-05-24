@@ -7,12 +7,128 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+/* Rare styles */
+.loader.is-hidden {
+    display: none !important;
+}
+.loader {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #2e2f42;
+    margin: 20px auto;
+}
+
+.loader.loader-default {
+    margin: 20px auto;
+    --loader-color: #4e75ff;
+    --loader-size: 48px;
+}
+/* Epic styles */
+* {
+    box-sizing: border-box;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+.gallery-item {
+    width: calc((100% - 96px) / 5);
+    border: 1px solid #808080;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.04);
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 2px;
+    background-color: #ffffff;
+    margin-top: auto;
+    border-top: 1px solid #efefef;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    margin: 0;
+    color: #2e2f42;
+}
+
+.info-item b {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+/* Legendary styles */
+.loader {
+    color: #fff;
+    position: fixed;
+    box-sizing: border-box;
+    left: -9999px;
+    top: -9999px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: 999999;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader.is-active {
+    opacity: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loader-default::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #fff;
+    border-top-color: #4e75ff;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
