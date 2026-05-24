@@ -3,21 +3,12 @@ import { createGallery, clearGallery, showLoader, hideLoader } from './js/render
 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-
 
 const form = document.querySelector('.form');
-
-let lightbox = new SimpleLightbox('.gallery a', { 
-  captionsData: 'alt', 
-  captionDelay: 250 
-});
 
 form.addEventListener('submit', handleSearch);
 
 function handleSearch(event) {
-
   event.preventDefault(); 
 
   const query = event.currentTarget.elements['search-text'].value.trim();
@@ -42,12 +33,10 @@ function handleSearch(event) {
           message: 'Sorry, there are no images matching your search query. Please try again!',
           position: 'topRight'
         });
-        return;
+        return; 
       }
 
       createGallery(data.hits);
-      
-      lightbox.refresh();
     })
     .catch(error => {
       console.error(error);
@@ -59,6 +48,6 @@ function handleSearch(event) {
     })
     .finally(() => {
       hideLoader();
-      form.reset();
+      form.reset(); 
     });
 }
